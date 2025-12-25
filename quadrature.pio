@@ -1,0 +1,15 @@
+.program quadrature
+    pull block
+    mov x, osr
+    mov y, osr
+
+loop:
+    in pins, 2
+    mov osr, isr
+    jmp x!=osr forward
+    jmp loop
+
+forward:
+    mov x, osr
+    push block
+    jmp loop
